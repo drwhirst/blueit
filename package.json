@@ -1,0 +1,16 @@
+{
+  "name": "blueit",
+  "version": "1.0.0",
+  "description": "A reddit clone",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "export NODE_ENV=test&& jasmine"
+  },
+  "keywords": [
+    "reddit",
+    "blog",
+    "node"
+  ],
+  "author": "David Hirst",
+  "license": "ISC"
+}
