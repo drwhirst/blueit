@@ -81,4 +81,22 @@ describe("routes : topics", () => {
             });
         });
     });
+
+    describe("POST /topics/:id/destroy", () => {
+        it("Should delete the topic associated with the ID", (done) => {
+            Topic.findAll()
+            .then((topics) => {
+                const topicCountBeforeDelete = topics.length;
+                expect(topicCountBeforeDelete).toBe(1);
+                request.post(`${base}${this.topic.id}/destroy`, (err, res, body) => {
+                    Topic.findAll()
+                    .then((topics) => {
+                        expect(err).toBeNull();
+                        expect(topics.length).toBe(topicCountBeforeDelete - 1);
+                        done();
+                    })
+                });
+            });
+        });
+    });
 });
