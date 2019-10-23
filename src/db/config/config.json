@@ -1,21 +1,21 @@
 {
   "development": {
-    "username": "dhirst",
-    "password": null,
+    "username": "david",
+    "password": "Fraggen8779!",
     "database": "blueitt-dev",
     "host": "127.0.0.1",
     "dialect": "postgres",
     "logging": false,
-    "operatorAliases": false
+    "operatorsAliases": false
   },
   "test": {
-    "username": "dhirst",
-    "password": null,
+    "username": "david",
+    "password": "Fraggen8779!",
     "database": "blueitt-test",
     "host": "127.0.0.1",
     "dialect": "postgres",
     "logging": false,
-    "operatorAliases": false
+    "operatorsAliases": false
   },
   "production": {
     "username": "root",
