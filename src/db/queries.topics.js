@@ -21,5 +21,14 @@ module.exports = {
         .catch((err) => {
             callback(err);
         });
+    },
+    getTopic(id, callback){
+        return Topic.findOne({ where: { id: id } })
+        .then((topic) => {
+            callback(null, topic);
+        })
+        .catch((err) => {
+            callback(err);
+        })
     }
 }
