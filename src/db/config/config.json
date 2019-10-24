@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "david",
-    "password": "Fraggen8779!",
+    "username": "dhirst",
+    "password": null,
     "database": "blueitt-dev",
     "host": "127.0.0.1",
     "dialect": "postgres",
@@ -9,8 +9,8 @@
     "operatorsAliases": false
   },
   "test": {
-    "username": "david",
-    "password": "Fraggen8779!",
+    "username": "dhirst",
+    "password": null,
     "database": "blueitt-test",
     "host": "127.0.0.1",
     "dialect": "postgres",

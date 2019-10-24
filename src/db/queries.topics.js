@@ -39,5 +39,23 @@ module.exports = {
         .catch((err) => {
             callback(err);
         })
+    },
+
+    updateTopic(id, updatedTopic, callback){
+        return Topic.findOne({ where: { id: id } })
+        .then((topic) => {
+            if(!topic){
+                return callback("Topic not found");
+            }
+            topic.update(updatedTopic, {
+                fields: Object.keys(updatedTopic)
+            })
+            .then(() => {
+                callback(null, topic);
+            })
+            .catch((err) => {
+                callback(err);
+            });
+        });
     }
 }
