@@ -40,7 +40,6 @@ module.exports = {
             callback(err);
         })
     },
-
     updateTopic(id, updatedTopic, callback){
         return Topic.findOne({ where: { id: id } })
         .then((topic) => {
