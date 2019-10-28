@@ -39,5 +39,22 @@ module.exports = {
         .catch((err) => {
             callback(err);
         })
+    },
+    updateAdvert(id, updatedAdvert, callback){
+        return Advertisement.findOne({ where: { id: id } })
+        .then((advert) => {
+            if(!advert){
+                return callback("Advert not found");
+            }
+            advert.update(updatedAdvert, {
+                fields: Object.keys(updatedAdvert)
+            })
+            .then(() => {
+                callback(null, advert);
+            })
+            .catch((err) => {
+                callback(err);
+            });
+        });
     }
 }

@@ -8,5 +8,6 @@ router.post('/advertisements/create', advertismentController.create);
 router.get('/advertisements/:id', advertismentController.show);
 router.get('/advertisements/:id/edit', advertismentController.edit);
 router.post('/advertisements/:id/destroy', advertismentController.destroy);
+router.post('/advertisements/:id/update', advertismentController.update);
 
 module.exports = router;
