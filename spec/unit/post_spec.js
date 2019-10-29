@@ -17,11 +17,11 @@ describe("Post", () => {
                     title: "My first visit to Proxima Centauri b",
                     body: "I saw some rocks.",
                     topicId: this.topic.id
+                })
+                .then((post) => {
+                    this.post = post;
+                    done();
                 });
-            })
-            .then((post) => {
-                this.post = post;
-                done();
             });
         })
         .catch((err) => {
@@ -57,5 +57,32 @@ describe("Post", () => {
                 done();
             });
         });
+    });
+
+    describe('#setTopic', () => {
+        it("Should associate a post and a topic", (done) => {
+            Topic.create({
+                title: "Famous dogs",
+                description: "A list of famous dogs."
+            })
+            .then((newTopic) => {
+                expect(this.post.topicId).toBe(this.topic.id);
+                this.post.setTopic(newTopic)
+                .then((newPost) => {
+                    expect(this.post.topicId).toBe(newTopic.id);
+                    done();
+                });
+            });
+        });
+    });
+
+    describe("#getTopic", () => {
+        it("should return the associated topic", (done) => {
+            this.post.getTopic()
+            .then((assocTopic) => {
+                expect(assocTopic.title).toBe("Expeditions to Alpha Centauri");
+                done();
+            })
+        })
     });
 });
