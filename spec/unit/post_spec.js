@@ -82,7 +82,7 @@ describe("Post", () => {
             .then((assocTopic) => {
                 expect(assocTopic.title).toBe("Expeditions to Alpha Centauri");
                 done();
-            })
-        })
+            });
+        });
     });
 });
