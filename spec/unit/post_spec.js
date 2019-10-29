@@ -1,5 +1,6 @@
 const sequelize = require('../../src/db/models/index').sequelize;
 const Topic = require('../../src/db/models').Topic;
+const Post = require("../../src/db/models").Post;
 
 describe("Post", () => {
     beforeEach((done) => {
@@ -41,6 +42,20 @@ describe("Post", () => {
                 expect(post.body).toBe("1. Not having to answer the 'are we there yet?' question.");
                 done();
             })
+        });
+
+        it("Should create a post with a missing title, body or assigned topic and throw a validation error", (done) => {
+            Post.create({
+                title: "Pros of cryosleep during the long journey"
+            })
+            .then((post) => {
+                done();
+            })
+            .catch((err) => {
+                expect(err.message).toContain("Post.body cannot be null");
+                expect(err.message).toContain("Post.topicId cannot be null");
+                done();
+            });
         });
     });
 });
