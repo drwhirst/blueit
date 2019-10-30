@@ -34,7 +34,7 @@ module.exports = {
             if(err || topic == null){
                 res.redirect(404, '/');
             } else {
-                res.render('topics/show', {topic});
+                res.render('topics/show', {topic: topic, posts: topic.posts});
             }
         });
     },

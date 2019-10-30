@@ -24,7 +24,7 @@ module.exports = {
         });
     },
     getTopic(id, callback){
-        return Topic.findOne({ where: {id} }, {
+        return Topic.findOne({ where: {id: id} }, {
             include: [{
                 model: Post,
                 as: "posts"
@@ -38,7 +38,7 @@ module.exports = {
         })
     },
     deleteTopic(id, callback){
-        return Topic.destroy({ where: {id} })
+        return Topic.destroy({ where: {id: id} })
         .then((topic) => {
             callback(null, topic);
         })
@@ -46,7 +46,6 @@ module.exports = {
             callback(err);
         })
     },
-
     updateTopic(id, updatedTopic, callback){
         return Topic.findOne({ where: { id: id } })
         .then((topic) => {
