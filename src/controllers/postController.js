@@ -36,9 +36,4 @@ module.exports = {
             }
         })
     },
-    showAll(req, res, next){
-        postQuery.showAllPosts(1, (err, posts) => {
-            res.render('posts/showall', {posts})
-        })
-    }
 }

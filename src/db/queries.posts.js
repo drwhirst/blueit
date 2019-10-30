@@ -30,16 +30,4 @@ module.exports = {
             callback(err);
         });
     },
-    showAllPosts(topicId, callback){
-        return Topic.findOne({ where: { id: topicId} })
-        .then((topic) => {
-            topic.getPosts();
-        })
-        .then((posts) => {
-            callback(null, posts);
-        })
-        .catch((err) => {
-            callback(err);
-        });
-    }
 }
